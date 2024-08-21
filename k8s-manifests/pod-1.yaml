@@ -4,7 +4,7 @@ metadata:
   name: nginx-pod
 spec:
   container:
-    -name: c1
-     image: nginx
-     port:
-      -container port: 80
+  - name: c1
+    image: nginx
+    port:
+    - container port: 80
