@@ -1,11 +1,11 @@
 apiVersion: apps/v1
-kind: delpoyment
+kind: Delpoyment
 metadata:
-  name: nginx
+  name: nginx-deployment
 spec:
   replica: 2
   selector:
-    matchlabels:
+    matchLabels:
       app: nginx
   template:
     metadata:
@@ -13,7 +13,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
+      - name: nginx-container
         image: nginx
         ports:
-        - containerport: 80
+        - containerPort: 80
