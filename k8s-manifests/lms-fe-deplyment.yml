@@ -1,0 +1,22 @@
+apiVersion: v1/app
+kind: deployement
+metadata:
+  name: fe-deplyment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fe
+  template:
+    metadata:
+      app: fe
+    spec:
+      containers:
+        - name: frontend-container
+          image: lokesh070/lms-fe
+          imagePullPloicy: Always
+          ports:
+            - containerPort: 80
+          
+
+

@@ -1,0 +1,30 @@
+apiVersion: v1/app
+kind: deployement
+metadata:
+  name: be-deplyment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: be
+  template:
+    metadata:
+      app: be
+    spec:
+      containers:
+        - name: backend-container
+          image: lokesh070/lms-be
+          imagePullPloicy: Always
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: backend-config-map
+          env:
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: password
+
+
